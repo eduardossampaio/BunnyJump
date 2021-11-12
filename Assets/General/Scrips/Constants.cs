@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Constants
 {
+    public const string MAIN_TEXTURE = "_MainTex";
+
     public static class TAGS
     {
         public const string Collectable   = "collectable";

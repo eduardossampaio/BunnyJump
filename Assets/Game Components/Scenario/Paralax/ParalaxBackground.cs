@@ -1,6 +1,5 @@
-using NaughtyAttributes;
-using System;
 using UnityEngine;
+using static Constants;
 
 public class ParalaxBackground : MonoBehaviour
 {
@@ -23,13 +22,14 @@ public class ParalaxBackground : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         
         mainMaterial = meshRenderer.materials[0];
-        meshRenderer.material.SetTexture("_MainTex", texture);
-        offset = mainMaterial.GetTextureOffset("_MainTex").x;
+        meshRenderer.material.SetTexture(MAIN_TEXTURE, texture);
+        offset = mainMaterial.GetTextureOffset(MAIN_TEXTURE).x;
 
         meshRenderer.sortingLayerName = sortingLayerName;
         meshRenderer.sortingOrder = sortingLayerOrder;
 
         isMooving = true;
+        
     }
 
 
@@ -38,7 +38,7 @@ public class ParalaxBackground : MonoBehaviour
         if (isMooving)
         {
             offset += offsetXAmount;
-            mainMaterial.SetTextureOffset("_MainTex", new Vector2(offset * offsetSpeed, 0));
+            mainMaterial.SetTextureOffset(MAIN_TEXTURE, new Vector2(offset * offsetSpeed, 0));
         }
     }
 
